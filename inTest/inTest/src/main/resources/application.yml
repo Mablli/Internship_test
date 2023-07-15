@@ -1,5 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://rc1b-0ckq9oilrgugcaer.mdb.yandexcloud.net:6432/javapro
-    username: javapro
-    password: ELncWdLB
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 123
+  liquibase:
+    enabled: true
+    change-log: db/changelog-master.yml
+    default-schema: mab
