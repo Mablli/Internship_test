@@ -3,7 +3,6 @@ package com.example.inTest.api;
 import com.example.inTest.dto.CreateUser;
 import com.example.inTest.service.UserService;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @Data
+@RequestMapping(value = "api/user/")
 public class UserController {
 
     private final UserService service;

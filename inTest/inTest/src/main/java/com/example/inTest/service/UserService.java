@@ -84,11 +84,11 @@ public class UserService {
      * Изменение ФИО пользователя
      * @param id - id пользователя
      * @param user - данные пользователя
-     * @return - результат
+     * @return - результат изменения
      */
     @Transactional
     public ResponseEntity<?> updateUserFullName(Long id, CreateUser user) {
-        if (check(user).getBody().toString().contains("!")) {
+        if (checkUserFullName(user).getBody().toString().contains("!")) {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
                     .body(check(user).getBody());
@@ -117,7 +117,7 @@ public class UserService {
     }
 
     /**
-     * Основные проверки пользователя
+     * Основные проверки данных пользователя
      * @param user - проверяемые данные пользователя
      * @return - результат проверок
      */
@@ -154,5 +154,28 @@ public class UserService {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body("Успешно");
+    }
+
+    /**
+     * Проверка ФИО пользователя (для метода, который изменяет только ФИО)
+     * @param user - проверяемые данные пользователя
+     * @return - результат проверок
+     */
+    public ResponseEntity<?> checkUserFullName(CreateUser user){
+        // Пустота полей
+        if (user.getName().equals("") || user.getSurname().equals("") || user.getMiddleName().equals("")) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body("Ни одно из полей не должно быть пустым!");
+        }
+        // Пробелы в полях
+        if (user.getName().contains(" ") || user.getSurname().contains(" ") || user.getMiddleName().contains(" ")) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body("Ни одно из полей не должно содержать пробелы!");
+        }
+         return ResponseEntity
+                 .status(HttpStatus.OK)
+                 .body("Успешно");
     }
 }

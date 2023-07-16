@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: inTest
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/user/**
+        - id: pet
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/pet/**
+    loadbalancer:
+      ribbon:
+        enabled: false
+
+server:
+  port: 8080

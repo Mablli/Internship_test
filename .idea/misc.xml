@@ -4,6 +4,12 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/inTest/inTest/pom.xml" />
+        <option value="$PROJECT_DIR$/pet/pet/pom.xml" />
+        <option value="$PROJECT_DIR$/inTest/pet/pom.xml" />
+        <option value="$PROJECT_DIR$/inTest/eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/inTest/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/inTest/pom.xml" />
       </list>
     </option>
   </component>

@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 123
+  liquibase:
+    enabled: true
+    change-log: db/changelog-master.yml
+    default-schema: mab
+  application:
+    name: pet
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+
+server:
+  port: 8082

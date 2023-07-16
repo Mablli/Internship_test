@@ -7,3 +7,12 @@ spring:
     enabled: true
     change-log: db/changelog-master.yml
     default-schema: mab
+  application:
+    name: inTest
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+
+server:
+  port: 8081
